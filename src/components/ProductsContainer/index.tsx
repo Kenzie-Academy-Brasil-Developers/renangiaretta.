@@ -27,9 +27,6 @@ const ProductsContainer = (  ) => {
     }
     return products.filter((element) => element.name.toLowerCase().includes(filter));
   })();
-  function teste() {
-    localStorage.clear()
-  }
 
   return (
 
@@ -49,7 +46,6 @@ const ProductsContainer = (  ) => {
               <button onClick = {() => {addProductToCart(item)}}>ADICIONAR</button>
             </StyledProductCard>   
         ) }
-        <button onClick = {teste}>teste</button>
       </ul>
     </StyledProductsContainer> : null)
   )
