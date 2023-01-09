@@ -1,20 +1,19 @@
 import React, { createContext, useEffect, useState } from 'react';
-import { Route, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { api } from '../services/api';
 import 'react-toastify/dist/ReactToastify.css';
-
 export interface iAuthContextProps{
     children    : React.ReactNode
     loadUser    : boolean
     login       : (data: any) => Promise<void>;
-    registerUser: (data: any, event: React.FormEvent<HTMLFormElement>) => Promise<void>
+    registerUser: (data: any) => Promise<void>;
 }
 
 
 export interface iAuthContextType {
     login       : ( ) => Promise<void>,
-    registerUser: (data: any, event: React.FormEvent<HTMLFormElement>) => Promise<void>
+    registerUser: ( ) => Promise<void>;
 }
 
 
@@ -57,8 +56,7 @@ export const AuthProvider = ({ children }: iAuthContextProps) => {
         }
     }
 
-    async function registerUser ( data: any, event: React.FormEvent<HTMLFormElement>) {
-        event.preventDefault()
+    const registerUser = async (data: any) => {
         try {
             const response = await api.post('/users', data)
             toast('Cadastro realizado com sucesso!')

@@ -12,7 +12,7 @@ function App() {
       <AuthProvider
         loadUser
         login        = {() => Promise.resolve()}
-        registerUser = {(data: any, event: React.FormEvent<HTMLFormElement>) => Promise.resolve()}
+        registerUser = {() => Promise.resolve()}
         >
           <CartProvider>
             <GlobalStyles/>
