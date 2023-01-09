@@ -1,14 +1,13 @@
-import React from 'react'
-import LogoAndTexts from '../../components/LogoAndTexts'
 import RegisterForm from '../../components/RegisterForm'
 import { StyledRegister } from './styles'
+import logoAndText from './../../assets/logoAndText.png'
+
 
 const Register = () => {
   return (
     <StyledRegister>
-        <LogoAndTexts/>
+        <img src = {logoAndText} alt = 'logo' />
         <RegisterForm/>
-
     </StyledRegister>
   )
 }
